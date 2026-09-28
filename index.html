@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>От «понять» к «сделать»: как формулировать цель занятия</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: #f4f6fb;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: #1a202c;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  .page { max-width: 860px; margin: 0 auto; padding: 48px 24px 80px; }
+  .longread {
+    --c-text: #1a202c;
+    --c-accent-1: #1e3a8a;
+    --c-accent-3: #7b1fa2;
+    --c-accent-4: #1a56db;
+    --c-accent-5: #00838f;
+    --c-accent-6: #b45309;
+    --c-accent-7: #16a34a;
+    font-size: 18px;
+    line-height: 1.75;
+    color: var(--c-text);
+  }
+  .longread p { margin: 0 0 22px 0; font-size: 19px; line-height: 1.75; }
+  .longread h1 { font-size: 42px; line-height: 1.2; font-weight: 800; margin: 0 0 24px 0; letter-spacing: -0.02em; }
+  .longread h2 { font-size: 32px; line-height: 1.25; font-weight: 800; margin: 0 0 24px 0; letter-spacing: -0.01em; }
+  .longread strong { font-weight: 700; }
+
+  .lr-hero {
+    background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%);
+    border-radius: 20px; padding: 52px 44px 44px; color: #fff; margin-bottom: 36px;
+  }
+  .lr-hero__tag {
+    font-size: 13px; letter-spacing: 2.5px; text-transform: uppercase;
+    margin: 0 0 22px 0; color: rgba(255,255,255,0.7); font-weight: 600;
+  }
+  .lr-hero h1 { color: #fff; font-size: 42px; margin-bottom: 22px; }
+  .lr-hero__lead { font-size: 21px; line-height: 1.55; color: rgba(255,255,255,0.92); margin-bottom: 26px; }
+  .lr-hero__meta {
+    border-top: 1px solid rgba(255,255,255,0.2); padding-top: 20px;
+    font-size: 15px; color: rgba(255,255,255,0.72); margin: 0;
+  }
+
+  .lr-nav {
+    background: #ffffff; border-radius: 14px; padding: 28px 32px; margin-bottom: 40px;
+    border-left: 5px solid #64748b; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06);
+  }
+  .lr-nav__label {
+    font-size: 13px; letter-spacing: 2px; text-transform: uppercase;
+    color: #64748b; font-weight: 700; margin: 0 0 14px 0;
+  }
+  .lr-nav ol { margin: 0; padding-left: 22px; }
+  .lr-nav li { font-size: 16px; line-height: 1.7; margin-bottom: 6px; color: #334155; }
+
+  .lr-scene {
+    background: #ffffff; border-radius: 16px; padding: 32px 36px; margin: 0 0 44px 0;
+    border-left: 5px solid #94a3b8; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05);
+  }
+  .lr-scene p { margin-bottom: 18px; font-size: 19px; color: #334155; }
+  .lr-scene p:last-child { margin-bottom: 0; }
+
+  .lr-part { margin: 0 0 48px 0; }
+  .lr-part-tag {
+    font-size: 13px; letter-spacing: 2.5px; text-transform: uppercase;
+    font-weight: 700; margin: 0 0 14px 0;
+  }
+  .lr-part--1 .lr-part-tag { color: var(--c-accent-3); }
+  .lr-part--2 .lr-part-tag { color: var(--c-accent-4); }
+  .lr-part--3 .lr-part-tag { color: var(--c-accent-5); }
+  .lr-part--4 .lr-part-tag { color: var(--c-accent-6); }
+  .lr-part--5 .lr-part-tag { color: var(--c-accent-7); }
+  .lr-part--apply .lr-part-tag { color: #dc2626; }
+
+  .lr-card {
+    border-radius: 16px; padding: 28px 32px; margin: 0 0 28px 0;
+  }
+  .lr-card--purple { background: #faf5ff; border-left: 5px solid var(--c-accent-3); }
+  .lr-card--blue { background: #eff6ff; border-left: 5px solid var(--c-accent-4); }
+  .lr-card--cyan { background: #ecfeff; border-left: 5px solid var(--c-accent-5); }
+  .lr-card--amber { background: #fffbeb; border-left: 5px solid var(--c-accent-6); }
+  .lr-card--green { background: #f0fdf4; border-left: 5px solid var(--c-accent-7); }
+  .lr-card--red { background: #fef2f2; border-left: 5px solid #dc2626; }
+  .lr-card--slate { background: #f1f5f9; border-left: 5px solid #64748b; }
+  .lr-card--white { background: #fff; border: 2px solid #e2e8f0; }
+
+  .lr-card__label {
+    font-size: 14px; letter-spacing: 1.5px; text-transform: uppercase;
+    font-weight: 700; margin: 0 0 16px 0;
+  }
+  .lr-card__label--purple { color: var(--c-accent-3); }
+  .lr-card__label--blue { color: var(--c-accent-4); }
+  .lr-card__label--cyan { color: var(--c-accent-5); }
+  .lr-card__label--amber { color: var(--c-accent-6); }
+  .lr-card__label--green { color: var(--c-accent-7); }
+  .lr-card__label--red { color: #dc2626; }
+
+  .lr-step { margin-bottom: 14px; font-size: 18px; line-height: 1.75; }
+  .lr-step:last-child { margin-bottom: 0; }
+  .lr-step strong { color: var(--c-accent-3); }
+  .lr-step--blue strong { color: var(--c-accent-4); }
+  .lr-step--cyan strong { color: var(--c-accent-5); }
+  .lr-step--amber strong { color: var(--c-accent-6); }
+  .lr-step--green strong { color: var(--c-accent-7); }
+
+  .lr-quote {
+    font-style: italic; font-size: 19px; line-height: 1.7; color: var(--c-text);
+    border-left: 4px solid #cbd5e1; padding: 4px 0 4px 22px; margin: 0;
+  }
+
+  .lr-compare {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 0 0 28px 0;
+  }
+  .lr-compare__col {
+    border-radius: 14px; padding: 24px 26px;
+  }
+  .lr-compare__col--bad { background: #fef2f2; border: 2px solid #fecaca; }
+  .lr-compare__col--good { background: #f0fdf4; border: 2px solid #bbf7d0; }
+  .lr-compare__title {
+    font-size: 15px; letter-spacing: 1.5px; text-transform: uppercase;
+    font-weight: 700; margin: 0 0 16px 0;
+  }
+  .lr-compare__col--bad .lr-compare__title { color: #b91c1c; }
+  .lr-compare__col--good .lr-compare__title { color: #15803d; }
+  .lr-compare__col p {
+    font-size: 17px; line-height: 1.65; margin: 0 0 12px 0; color: #1a202c;
+  }
+  .lr-compare__col p:last-child { margin-bottom: 0; }
+
+  .lr-checklist { margin: 0; padding-left: 0; list-style: none; counter-reset: lr-count; }
+  .lr-checklist li {
+    counter-increment: lr-count; position: relative; padding-left: 44px;
+    margin-bottom: 16px; font-size: 18px; line-height: 1.8;
+  }
+  .lr-checklist li:last-child { margin-bottom: 0; }
+  .lr-checklist li::before {
+    content: counter(lr-count); position: absolute; left: 0; top: 2px;
+    width: 30px; height: 30px; border-radius: 50%;
+    background: #dc2626; color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 15px; font-weight: 700;
+  }
+
+  .lr-final {
+    background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 100%);
+    border-radius: 20px; padding: 44px 40px; color: #fff; margin-bottom: 36px;
+  }
+  .lr-final h2 { color: #fff; font-size: 30px; margin-bottom: 20px; }
+  .lr-final p { color: rgba(255,255,255,0.95); font-size: 19px; line-height: 1.7; margin: 0 0 18px 0; }
+  .lr-final p:last-child { margin-bottom: 0; }
+  .lr-final strong { color: #fff; }
+
+  .lr-sources {
+    background: #ffffff; border-radius: 16px; padding: 32px 36px; margin-bottom: 36px;
+    border-left: 5px solid #64748b; box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05);
+  }
+  .lr-sources__label {
+    font-size: 14px; letter-spacing: 2px; text-transform: uppercase;
+    color: #475569; font-weight: 700; margin: 0 0 20px 0;
+  }
+  .lr-sources p {
+    font-size: 15px; line-height: 1.7; color: #475569; margin: 0 0 12px 0;
+    padding-left: 22px; text-indent: -22px;
+  }
+  .lr-sources p:last-child { margin-bottom: 0; }
+
+  .lr-table {
+    width: 100%; border-collapse: collapse; margin: 0 0 28px 0;
+    background: #fff; border-radius: 12px; overflow: hidden;
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06);
+    font-size: 16px;
+  }
+  .lr-table th, .lr-table td {
+    padding: 14px 18px; text-align: left; border-bottom: 1px solid #e2e8f0;
+    vertical-align: top; line-height: 1.6;
+  }
+  .lr-table th {
+    background: #f1f5f9; font-weight: 700; color: #334155;
+    font-size: 14px; letter-spacing: 0.5px; text-transform: uppercase;
+  }
+  .lr-table tr:last-child td { border-bottom: none; }
+  .lr-table td strong { color: var(--c-accent-4); }
+
+  @media (max-width: 640px) {
+    .page { padding: 24px 14px 48px; }
+    .longread h1, .lr-hero h1 { font-size: 28px; }
+    .longread h2 { font-size: 24px; }
+    .longread p, .lr-scene p { font-size: 17px; }
+    .lr-hero, .lr-final { padding: 32px 22px; }
+    .lr-hero__lead { font-size: 18px; }
+    .lr-card, .lr-scene, .lr-sources, .lr-nav { padding: 22px 20px; }
+    .lr-final p { font-size: 17px; }
+    .lr-checklist li { padding-left: 38px; font-size: 16px; }
+    .lr-checklist li::before { width: 26px; height: 26px; font-size: 13px; }
+    .lr-compare { grid-template-columns: 1fr; gap: 14px; }
+    .lr-table { font-size: 14px; }
+    .lr-table th, .lr-table td { padding: 10px 12px; }
+  }
+</style>
+</head>
+<body>
+
+<main class="page">
+<article class="longread">
+
+  <!-- ОБЛОЖКА -->
+  <div class="lr-hero">
+    <p class="lr-hero__tag">Модуль 2 · Проектирование занятия</p>
+    <h1>От «понять» к «сделать»: как формулировать цель занятия</h1>
+    <p class="lr-hero__lead">
+      Разбираем, почему цели вроде «студент поймёт» не работают и как превратить их в проверяемые результаты — на примерах из реальной практики.
+    </p>
+    <p class="lr-hero__meta">
+      Читайте, если хотите, чтобы ваше занятие имело чёткий фокус и не разваливалось к середине. Время чтения — 12–15 минут.
+    </p>
+  </div>
+
+  <!-- НАВИГАЦИЯ -->
+  <div class="lr-nav">
+    <p class="lr-nav__label">Что в этом тексте</p>
+    <ol>
+      <li>Сцена, которая знакома каждому</li>
+      <li>Почему «понять» и «узнать» — плохие цели</li>
+      <li>Конструктивное согласование: три элемента одной цепочки</li>
+      <li>Как формулировать цель через действие</li>
+      <li>Пример: занятие по анализу целевой аудитории</li>
+      <li>Реалистичность: что можно успеть за одно занятие</li>
+      <li>Чек-лист: проверьте свою цель</li>
+      <li>Источники</li>
+    </ol>
+  </div>
+
+  <!-- ВВЕДЕНИЕ -->
+  <div class="lr-scene">
+    <p>Четверг, 21:15. Вы садитесь за ноутбук готовить занятие. Открываете ПУД. Там написано: «Студент понимает основные принципы анализа данных». И вы смотрите на эту фразу — и не понимаете, что с ней делать.</p>
+    <p>Что значит «понимает»? Как это проверить? Что должно произойти на занятии? Что студент должен уметь после него? Вопросов больше, чем ответов.</p>
+    <p>Это самая распространённая ситуация. Проблема не в вас — проблема в том, как формулируются цели. Большинство учебных целей написаны так, что из них невозможно вывести ни одно конкретное действие. И поэтому занятие теряет фокус: непонятно, что делать в аудитории, непонятно, как проверить результат.</p>
+    <p>В этом тексте мы разберём, как превратить размытую цель в проверяемый результат. И почему это меняет всё занятие целиком.</p>
+  </div>
+
+  <!-- ЧАСТЬ 1. ПОЧЕМУ «ПОНЯТЬ» — ПЛОХАЯ ЦЕЛЬ -->
+  <section class="lr-part lr-part--1">
+    <p class="lr-part-tag">Часть первая</p>
+    <h2>Почему «понять» и «узнать» — плохие цели</h2>
+
+    <p>Сравните два варианта цели для одного и того же занятия.</p>
+
+    <div class="lr-compare">
+      <div class="lr-compare__col lr-compare__col--bad">
+        <p class="lr-compare__title">Плохая цель</p>
+        <p>«Студент поймёт, как анализировать целевую аудиторию».</p>
+        <p>«Студент узнает о методах качественных исследований».</p>
+        <p>«Студент ознакомится с принципами сегментации».</p>
+      </div>
+      <div class="lr-compare__col lr-compare__col--good">
+        <p class="lr-compare__title">Хорошая цель</p>
+        <p>«Студент составит профиль целевой аудитории, выделив три ключевые характеристики».</p>
+        <p>«Студент объяснит, чем качественные исследования отличаются от количественных».</p>
+        <p>«Студент сегментирует аудиторию по двум признакам и обоснует выбор».</p>
+      </div>
+    </div>
+
+    <p>Проблема «плохих» целей в том, что они описывают <strong>состояние</strong>, а не <strong>действие</strong>. «Понял» — это не то, что можно увидеть. «Узнал» — это не то, что можно проверить. И самое главное: из такой цели нельзя вывести, что студент будет делать на занятии. Он будет сидеть и слушать? Обсуждать? Решать задачу?</p>
+
+    <p>Американский педагог Роберт Магер ещё в 1962 году сформулировал это правило в книге «Preparing Instructional Objectives»: цель должна описывать <strong>наблюдаемое поведение</strong> — то, что студент сможет продемонстрировать после обучения [Mager, 1962]. Если вы не можете представить, как студент это делает, — цель сформулирована плохо.</p>
+
+    <p>И ещё одна деталь. Размытые цели создают иллюзию, что занятие «про всё сразу». Вроде бы и про анализ, и про методы, и про сегментацию. Но за 80 минут нельзя научить всему. Когда цель размытая, вы неизбежно перегружаете занятие. А перегруз убивает обучение — об этом мы говорили в первом лонгриде.</p>
+  </section>
+
+  <!-- ЧАСТЬ 2. КОНСТРУКТИВНОЕ СОГЛАСОВАНИЕ -->
+  <section class="lr-part lr-part--2">
+    <p class="lr-part-tag">Часть вторая</p>
+    <h2>Конструктивное согласование: три элемента одной цепочки</h2>
+
+    <p>Когда цель сформулирована через действие, дальше всё становится на свои места. Потому что цель естественно определяет два других элемента занятия — что студенты будут делать и как вы это проверите.</p>
+
+    <p>Джон Биггс в 1996 году назвал это <strong>конструктивным согласованием</strong> (constructive alignment). Вот три элемента, которые должны быть связаны:</p>
+
+    <div class="lr-card lr-card--blue">
+      <p class="lr-card__label lr-card__label--blue">Три элемента согласованного занятия</p>
+      <p class="lr-step lr-step--blue"><strong>Цель.</strong> Что студент должен уметь делать после занятия?</p>
+      <p class="lr-step lr-step--blue"><strong>Активность.</strong> Что студент делает на занятии, чтобы этому научиться?</p>
+      <p class="lr-step lr-step--blue"><strong>Проверка.</strong> Как вы (и сам студент) узнаете, что цель достигнута?</p>
+    </div>
+
+    <p>Если любой из этих элементов выпадает или не связан с другими, занятие теряет целенаправленность. Студенты могут получить информацию, но не научиться её применять.</p>
+
+    <p>Вот три самые частые ошибки, которые мы видим у преподавателей-практиков.</p>
+
+    <div class="lr-card lr-card--red">
+      <p class="lr-card__label lr-card__label--red">Ошибка 1. Цель есть, активности нет</p>
+      <p>Цель: «студент сможет провести анализ конкурентной среды». Активность: преподаватель читает лекцию. Студент слушает. Проблема: чтобы научиться анализировать, нужно анализировать. Слушание не развивает навык.</p>
+    </div>
+
+    <div class="lr-card lr-card--red">
+      <p class="lr-card__label lr-card__label--red">Ошибка 2. Активность есть, цели нет</p>
+      <p>Активность: «студенты обсуждают кейс в группах». Цель: не сформулирована. Проблема: обсуждение ради обсуждения. Непонятно, чему студенты должны научиться, что они должны вынести из этого обсуждения.</p>
+    </div>
+
+    <div class="lr-card lr-card--red">
+      <p class="lr-card__label lr-card__label--red">Ошибка 3. Проверка не связана с целью</p>
+      <p>Цель: «студент сможет составить профиль ЦА». Проверка: тест на знание терминов. Проблема: проверили не то, чему учили. Студент может знать термины и не уметь составить профиль.</p>
+    </div>
+
+    <p>Биггс описывает свою модель так: «Хорошая обучающая система согласует методы преподавания и оценки с учебными активностями, заявленными в целях, так что все аспекты системы работают сообща в поддержку адекватного обучения студентов» [Biggs, 1996, p. 350].</p>
+
+    <p>Обратите внимание на слово «согласует». Задача не в том, чтобы придумать «правильные» методы. Задача в том, чтобы все элементы работали в одной логике.</p>
+  </section>
+
+  <!-- ЧАСТЬ 3. КАК ФОРМУЛИРОВАТЬ ЦЕЛЬ -->
+  <section class="lr-part lr-part--3">
+    <p class="lr-part-tag">Часть третья</p>
+    <h2>Как формулировать цель через действие</h2>
+
+    <p>Есть простой приём. Замените глаголы «понимать», «знать», «узнать», «ознакомиться» на глаголы действия. Вот базовый набор, с которого можно начать.</p>
+
+    <table class="lr-table">
+      <thead>
+        <tr>
+          <th>Вместо этого</th>
+          <th>Используйте это</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Понять</td>
+          <td><strong>Объяснить, описать, сформулировать</strong></td>
+        </tr>
+        <tr>
+          <td>Знать</td>
+          <td><strong>Назвать, перечислить, определить</strong></td>
+        </tr>
+        <tr>
+          <td>Узнать</td>
+          <td><strong>Сравнить, различить, распознать</strong></td>
+        </tr>
+        <tr>
+          <td>Применить</td>
+          <td><strong>Решить, составить, спроектировать</strong></td>
+        </tr>
+        <tr>
+          <td>Проанализировать</td>
+          <td><strong>Выделить, разобрать, найти причины</strong></td>
+        </tr>
+        <tr>
+          <td>Оценить</td>
+          <td><strong>Обосновать, защитить, выбрать из вариантов</strong></td>
+        </tr>
+        <tr>
+          <td>Создать</td>
+          <td><strong>Разработать, построить, написать</strong></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>Это упрощённая версия таксономии Бенджамина Блума, которую в 2001 году переработали Лорин Андерсон и Дэвид Кратволь [Anderson & Krathwohl, 2001]. Полная версия сложнее, но для практики достаточно этого набора.</p>
+
+    <p>Вот формула, которая работает почти всегда.</p>
+
+    <div class="lr-card lr-card--cyan">
+      <p class="lr-card__label lr-card__label--cyan">Формула проверяемой цели</p>
+      <p class="lr-step lr-step--cyan"><strong>Студент сможет</strong> [глагол действия] [объект] [условие или критерий].</p>
+      <p style="margin-top: 18px; margin-bottom: 0; font-size: 17px; color: #334155;">
+        Пример: «Студент сможет <strong>составить</strong> профиль целевой аудитории, <strong>выделив не менее трёх</strong> ключевых характеристик».
+      </p>
+    </div>
+
+    <p>Обратите внимание на условие в конце. «Не менее трёх характеристик» — это критерий, по которому вы потом сможете проверить работу. Без такого критерия цель всё ещё остаётся размытой.</p>
+
+    <p>И ещё одно правило. Цель должна быть <strong>одной</strong>. Не «научиться анализировать данные, строить отчёты и защищать выводы перед заказчиком». Это три разные цели. Каждая требует отдельного занятия.</p>
+  </section>
+
+  <!-- ЧАСТЬ 4. ПРИМЕР -->
+  <section class="lr-part lr-part--4">
+    <p class="lr-part-tag">Часть четвёртая</p>
+    <h2>Пример: занятие по анализу целевой аудитории</h2>
+
+    <p>Разберём занятие целиком — от цели до проверки. Так это выглядит, когда три элемента согласованы.</p>
+
+    <div class="lr-card lr-card--white">
+      <p class="lr-card__label lr-card__label--amber">Цель занятия</p>
+      <p>Студент сможет составить профиль целевой аудитории для образовательного продукта, выделив не менее трёх ключевых характеристик (потребности, барьеры, контекст).</p>
+    </div>
+
+    <div class="lr-card lr-card--white">
+      <p class="lr-card__label lr-card__label--amber">Активность студентов</p>
+      <p>Студенты анализируют реальные интервью или данные опроса, выделяют паттерны, формулируют гипотезы о портрете пользователя, обсуждают в группах.</p>
+    </div>
+
+    <div class="lr-card lr-card--white">
+      <p class="lr-card__label lr-card__label--amber">Проверка результата</p>
+      <p>Студент заполняет шаблон «Портрет ЦА» с обоснованием каждой характеристики и сдаёт его на проверку.</p>
+    </div>
+
+    <p>Посмотрите, как здесь работают все три принципа.</p>
+
+    <p><strong>Цель через действие.</strong> Не «понять аудиторию», а «составить профиль». Есть критерий — минимум три характеристики.</p>
+
+    <p><strong>Активность связана с целью.</strong> Если цель — составить профиль, то и на занятии студенты должны что-то делать с реальными данными. Не слушать лекцию про методы, а применять их к интервью.</p>
+
+    <p><strong>Проверка совпадает с целью.</strong> Цель была «составить профиль» — проверка тоже про профиль. Не тест на знание терминов, а именно работа с шаблоном.</p>
+
+    <p>А теперь сравните с типичным занятием на ту же тему, которое мы часто видим.</p>
+
+    <div class="lr-card lr-card--red">
+      <p class="lr-card__label lr-card__label--red">Как бывает</p>
+      <p><strong>Цель:</strong> «Студент понимает, как анализировать целевую аудиторию».</p>
+      <p><strong>Активность:</strong> преподаватель рассказывает про методы анализа, показывает примеры.</p>
+      <p><strong>Проверка:</strong> тест из 10 вопросов с выбором ответа.</p>
+      <p style="margin-bottom: 0; margin-top: 12px;"><strong>Что не так:</strong> цель размытая, активность не развивает навык, проверка не связана с целью. Студент может сдать тест и при этом не уметь составить профиль.</p>
+    </div>
+
+    <p>Разница не в «инновационности» методов. Разница в <strong>согласованности</strong>. Даже скучная лекция работает, если все три элемента связаны. И самое интерактивное занятие разваливается, если они не связаны.</p>
+  </section>
+
+  <!-- ЧАСТЬ 5. РЕАЛИСТИЧНОСТЬ -->
+  <section class="lr-part lr-part--5">
+    <p class="lr-part-tag">Часть пятая</p>
+    <h2>Реалистичность: что можно успеть за одно занятие</h2>
+
+    <p>Самое частое искушение преподавателя-практика — впихнуть в одно занятие весь свой опыт. Вы знаете так много, что хочется поделиться всем. Но это работает против вас.</p>
+
+    <p>Напомню принцип из первого лонгрида: рабочая память студента ограничена. За 80 минут занятия он может качественно освоить <strong>один</strong> результат. Не три. Не пять. Один.</p>
+
+    <div class="lr-card lr-card--green">
+      <p class="lr-card__label lr-card__label--green">Правило одного занятия</p>
+      <p>У каждого занятия — одна цель. Если вы не можете сформулировать её одной фразой, значит, вы пытаетесь сделать слишком много.</p>
+    </div>
+
+    <p>Как проверить, реалистична ли цель? Задайте себе два вопроса.</p>
+
+    <p><strong>Первый:</strong> «Что студент сможет сделать уже через 1,5–2 часа работы на занятии?» Не «что он узнает за семестр», а именно за одно занятие. Если ответ — «сможет освоить всю тему», цель нереалистична.</p>
+
+    <p><strong>Второй:</strong> «Могу ли я это проверить за 5 минут в конце занятия?» Если проверка требует часа разбора, цель слишком амбициозная.</p>
+
+    <p>Вот примеры того, как масштаб цели соотносится с форматом занятия.</p>
+
+    <table class="lr-table">
+      <thead>
+        <tr>
+          <th>Цель</th>
+          <th>Реалистично за 80 минут?</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Студент сможет объяснить разницу между качественными и количественными методами</td>
+          <td>Да</td>
+        </tr>
+        <tr>
+          <td>Студент сможет составить профиль ЦА по готовому шаблону</td>
+          <td>Да</td>
+        </tr>
+        <tr>
+          <td>Студент сможет провести полное исследование аудитории</td>
+          <td>Нет (это цель на несколько недель)</td>
+        </tr>
+        <tr>
+          <td>Студент сможет защитить гипотезу о портрете пользователя на основе данных</td>
+          <td>Скорее нет (нужна предварительная работа)</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>Если цель не влезает в занятие — разделите её на несколько. Первое занятие: составить профиль. Второе: обсудить и защитить. Третье: применить к своему проекту. Так вы получите три согласованных занятия вместо одного перегруженного.</p>
+  </section>
+
+  <!-- ПРИМЕНЕНИЕ. ЧЕК-ЛИСТ -->
+  <section class="lr-part lr-part--apply">
+    <p class="lr-part-tag">Применение</p>
+    <h2>Чек-лист: проверьте свою цель</h2>
+
+    <p>Перед следующим занятием возьмите свою формулировку цели и прогоните её через эти вопросы.</p>
+
+    <div class="lr-card lr-card--red" style="background: #fff;">
+      <ul class="lr-checklist">
+        <li>Цель сформулирована через <strong>глагол действия</strong>? Если там «понять», «узнать» или «ознакомиться» — перепишите.</li>
+        <li>Цель <strong>одна</strong>? Если у вас в одной фразе три разных результата — разделите их.</li>
+        <li>Есть ли <strong>критерий</strong>, по которому можно проверить достижение? «Выделив не менее трёх», «с обоснованием», «с примером» — это критерии.</li>
+        <li>Цель <strong>реалистична</strong> для одного занятия? Сможет ли студент её достичь за 80 минут?</li>
+        <li><strong>Активность</strong> студентов ведёт к цели? Если они только слушают — нет.</li>
+        <li><strong>Проверка</strong> совпадает с целью? Если цель — «составить», а проверка — тест, что-то не так.</li>
+        <li>Можете ли вы <strong>увидеть результат</strong> в конце занятия? Если нет — цель слишком абстрактная.</li>
+      </ul>
+    </div>
+
+    <p>Семь вопросов — не догма. Но если хотя бы на один из них вы отвечаете «нет», есть над чем поработать.</p>
+  </section>
+
+  <!-- ФИНАЛ -->
+  <div class="lr-final">
+    <h2>Что дальше</h2>
+    <p>Мы разобрали, от чего отталкиваться при проектировании занятия: от <strong>цели, сформулированной через действие</strong>. Это первый шаг. Дальше — как выстроить занятие целиком, чтобы студенты прошли путь от знакомства с темой до применения.</p>
+    <p>На следующей странице модуля вы разберёте <strong>структуру занятия на основе адаптированного цикла Колба</strong>. Там будет видно, как цель превращается в конкретные этапы: опыт → рефлексия → теория → применение.</p>
+    <p>А сейчас, если хотите, вернитесь к <strong>практическому заданию</strong> и попробуйте сформулировать цель для своего занятия. Не идеально — просто попробуйте. Сформулируйте одну цель через глагол действия и посмотрите, как она меняет ваше представление о занятии.</p>
+  </div>
+
+  <!-- ИСТОЧНИКИ -->
+  <div class="lr-sources">
+    <p class="lr-sources__label">Источники, на которые опирается текст</p>
+    <p>Anderson L. W., Krathwohl D. R. A taxonomy for learning, teaching, and assessing: a revision of Bloom’s taxonomy of educational objectives. New York: Longman, 2001. 352 p.</p>
+    <p>Biggs J. Enhancing teaching through constructive alignment // Higher Education. 1996. Vol. 32, no. 3. P. 347–364.</p>
+    <p>Bloom B. S. Taxonomy of educational objectives: the classification of educational goals. Handbook I: Cognitive domain. New York: David McKay, 1956.</p>
+    <p>Fink L. D. Creating significant learning experiences: an integrated approach to designing college courses. San Francisco: Jossey-Bass, 2013.</p>
+    <p>Mager R. F. Preparing instructional objectives. Palo Alto, CA: Fearon Publishers, 1962.</p>
+    <p>Marzano R. J., Kendall J. S. The new taxonomy of educational objectives. 2nd ed. Thousand Oaks, CA: Corwin Press, 2007. 208 p.</p>
+    <p>Wiggins G., McTighe J. Understanding by design. 2nd ed. Alexandria, VA: ASCD, 2005. 370 p.</p>
+  </div>
+
+</article>
+</main>
+
+</body>
+</html>
